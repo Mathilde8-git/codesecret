@@ -45,4 +45,12 @@ Les scénarios ci-dessous sont consignés avant leur exécution. Pour connaître
 
 ### Résultats d'exécution
 
-À compléter après exécution de chacun des scénarios : résultat obtenu et version testée.
+Exécution réalisée avec Node.js (moteur `game.js`, version du jeu **1.0.0**, branche `main`). Le secret a été fixé par `createGame(codeFixe)` ; aucun fichier du jeu n'a été modifié.
+
+| Cas | Obtenu | Verdict / version testée |
+|---|---|---|
+| 1 — Proposition invalide | `ok: false`, message « La proposition doit contenir exactement quatre couleurs. » ; état `playing`, 0 essai utilisé, 10 restants, historique vide. | **Réussi** · v1.0.0 |
+| 2 — Couleurs répétées | `ok: true`, essai 1, `wellPlaced: 2`, `misplaced: 0` ; historique contient une proposition, 9 essais restants. | **Réussi** · v1.0.0 |
+| 3 — Victoire au dernier essai puis verrouillage | Les neuf premiers essais restent `playing`. Le dixième renvoie `won`, `attempt: 10`, 4 bien placées et 0 mal placée. Une tentative après la victoire renvoie `ok: false` (« La partie est terminée… ») ; l'état reste identique, à 10 essais utilisés. | **Réussi** · v1.0.0 |
+
+**Bilan : 3 scénarios sur 3 réussis.** Ces vérifications ciblent le moteur `game.js` avec secret fixé ; elles ne constituent pas un test manuel de l'interface dans un navigateur.
