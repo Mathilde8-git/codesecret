@@ -32,3 +32,17 @@ Le moteur est séparé de l'interface pour tester les règles sans dépendre des
 
 ## Vérifications et limites
 Les tests couvrent palette, propositions invalides, exemples de score, répétitions, victoire au dixième essai, défaite et verrouillage après la fin. Le déploiement GitHub Pages, la conformité officielle API 0.2 et les tests sur smartphone réel restent à effectuer. La PWA est facultative et non implémentée. Ajouter au README les preuves avant/après d'une correction, le résultat d'un essai mobile et le retour sur le jeu d'un camarade pour J2.
+
+## Scénarios de vérification manuelle (version 1.0.0)
+
+Les scénarios ci-dessous sont consignés avant leur exécution. Pour connaître le secret sans modifier le jeu, ils utilisent le moteur de test `createGame(codeFixe)` de `game.js` (mode déterministe).
+
+| Cas | État de départ connu | Action | Attendu |
+|---|---|---|---|
+| 1 — Proposition invalide | Nouvelle partie, secret fixé à `[rouge, bleu, vert, jaune]`, 0 essai utilisé | Soumettre `[rouge, bleu]` | Refus avec `ok: false`; état toujours `playing`, 0 essai utilisé et historique vide. |
+| 2 — Couleurs répétées | Nouvelle partie, secret fixé à `[rouge, rouge, bleu, vert]`, 0 essai utilisé | Soumettre `[rouge, rouge, rouge, rouge]` | Proposition acceptée ; retour `wellPlaced: 2`, `misplaced: 0` ; 1 essai dans l'historique. |
+| 3 — Victoire au dernier essai puis verrouillage | Nouvelle partie, secret fixé à `[rouge, bleu, vert, jaune]`, 0 essai utilisé | Soumettre neuf fois `[violet, violet, violet, violet]`, puis le secret exact ; tenter ensuite une autre proposition | Les neuf premiers essais restent `playing`; le dixième donne `won`; la proposition suivante est refusée et l'état final ne change pas. |
+
+### Résultats d'exécution
+
+À compléter après exécution de chacun des scénarios : résultat obtenu et version testée.
