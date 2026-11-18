@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172238">
+  <meta name="description" content="Code secret : jeu de déduction en couleurs.">
+  <title>Code secret — jeu de déduction</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">JEU DE DÉDUCTION · VERSION 1.0.0</p>
+      <h1>Code <span>secret</span></h1>
+      <p>Retrouvez les quatre couleurs cachées en dix essais maximum.</p>
+    </header>
+    <section class="card" aria-label="Jeu Code secret">
+      <div class="toolbar">
+        <div><p class="eyebrow">VOTRE PARTIE</p><strong id="attempt-count">Essai 1 sur 10</strong></div>
+        <button class="button quiet" id="new-game" type="button">↻ Nouvelle partie</button>
+      </div>
+      <p id="message" class="message" role="status" aria-live="polite">Composez une proposition de quatre couleurs, puis validez-la.</p>
+      <div class="section-heading"><h2>Vos propositions</h2><span>Indices à droite</span></div>
+      <div id="history" class="history" aria-label="Historique des essais"></div>
+      <section class="composer" aria-labelledby="composer-title">
+        <div class="section-heading"><h2 id="composer-title">Votre proposition</h2><span id="slot-instruction">Emplacement 1 sélectionné</span></div>
+        <div id="slots" class="slots" aria-label="Quatre emplacements de couleur"></div>
+        <h3>Palette commune</h3>
+        <div id="palette" class="palette" aria-label="Palette des six couleurs"></div>
+        <div class="controls">
+          <button class="button primary" id="submit" type="button">Valider l’essai</button>
+          <button class="button secondary" id="clear" type="button">Effacer</button>
+        </div>
+      </section>
+      <details class="rules"><summary>Règles du jeu</summary>
+        <ul>
+          <li>Le code secret contient quatre couleurs parmi rouge, bleu, vert, jaune, orange et violet. Les répétitions sont possibles.</li>
+          <li>Vous avez dix essais. Les quatre couleurs sont ordonnées de gauche à droite et modifiables avant validation.</li>
+          <li>Une proposition incomplète ou invalide est refusée sans consommer d’essai.</li>
+          <li>Les indices donnent le nombre de couleurs bien placées puis présentes mais mal placées. Ils ne désignent pas les pions.</li>
+          <li>Les positions exactes sont comptées d’abord ; chaque occurrence ne compte qu’une fois.</li>
+          <li>Quatre couleurs bien placées donnent la victoire, même au dixième essai. Après dix essais sans victoire, la partie est perdue.</li>
+        </ul>
+      </details>
+    </section>
+    <footer>Code secret · Projet pédagogique · v1.0.0</footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
