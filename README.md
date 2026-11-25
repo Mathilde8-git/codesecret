@@ -13,6 +13,9 @@ Le jeu est une application web progressive (PWA) installable sur l'écran d'accu
 
 L'icône de l'application se trouve dans `icons/` (formats SVG 192 et 512 px). Elle représente les quatre couleurs du jeu sur un fond bleu nuit, avec le nom **Mastermind**.
 
+## Partager le jeu
+Un panneau « Partager Mastermind » dans l’application affiche un QR code de l’adresse publique et propose le partage natif ou la copie du lien. Le QR code est généré via un service externe ; une connexion Internet est requise pour le faire apparaître.
+
 ## Fichiers
 - `index.html` : structure de la page et métadonnées PWA.
 - `manifest.webmanifest` : paramètres d'installation.
