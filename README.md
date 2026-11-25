@@ -1,4 +1,4 @@
-# Code secret en couleurs
+# Mastermind — Code secret en couleurs
 
 **Version 1.0.0** · Variante pédagogique `code-couleurs-1.0`.
 
@@ -9,13 +9,15 @@ Ouvrir `index.html` dans un navigateur récent. Aucun compte, serveur applicatif
 Le jeu applique l'annexe « Règles communes » du document *Projet — Code secret en couleurs, inspiré du Mastermind*, édition 2.2 (pages 4 à 6). Le secret est une suite fixe et aléatoire de quatre couleurs parmi `rouge`, `bleu`, `vert`, `jaune`, `orange`, `violet`, répétitions possibles. Dix propositions ordonnées de quatre couleurs sont autorisées. Une proposition invalide ne consomme pas d'essai. Les indices comptent d'abord les positions exactes, puis les couleurs présentes ailleurs parmi les occurrences restantes. Une occurrence ne compte qu'une fois. La victoire est possible au dixième essai ; après dix essais valides sans victoire, la partie est perdue.
 
 ## Application installable (PWA)
-Le jeu peut être ajouté à l'écran d'accueil ou installé depuis un navigateur compatible. Après un premier chargement en ligne, les fichiers essentiels sont mis en cache pour permettre de jouer hors connexion. Sur iPhone/iPad : Safari > Partager > Ajouter à l'écran d'accueil. Sur Android/ordinateur : utiliser le bouton ou menu « Installer » du navigateur, s'il est proposé.
+Le jeu est une application web progressive (PWA) installable sur l'écran d'accueil depuis un navigateur compatible. Après un premier chargement en ligne, les fichiers essentiels sont mis en cache pour permettre de jouer hors connexion. Sur iPhone/iPad : Safari > Partager > Ajouter à l'écran d'accueil. Sur Android/ordinateur : utiliser le bouton ou menu « Installer » du navigateur, s'il est proposé.
+
+L'icône de l'application se trouve dans `icons/` (formats SVG 192 et 512 px). Elle représente les quatre couleurs du jeu sur un fond bleu nuit, avec le nom **Mastermind**.
 
 ## Fichiers
 - `index.html` : structure de la page et métadonnées PWA.
 - `manifest.webmanifest` : paramètres d'installation.
 - `sw.js` : cache hors ligne.
-- `icons/` : icônes de l'application.
+- `icons/` : icônes de l'application (Mastermind, billes colorées, fond bleu nuit).
 - `style.css` : présentation responsive.
 - `app.js` : interface et API publique.
 - `game.js` : moteur, validation et calcul des indices.
@@ -39,7 +41,7 @@ L'état contient `status` (`playing`, `won`, `lost`), `attemptsUsed`, `attemptsR
 Le moteur est séparé de l'interface pour tester les règles sans dépendre des clics. Le score retire d'abord les occurrences exactes, puis associe les couleurs restantes ; cela évite le double comptage des répétitions. Les couleurs sont nommées et les emplacements accessibles au clavier et au toucher.
 
 ## Vérifications et limites
-Les tests couvrent palette, propositions invalides, exemples de score, répétitions, victoire au dixième essai, défaite et verrouillage après la fin. Le déploiement GitHub Pages, la conformité officielle API 0.2 et les tests sur smartphone réel restent à effectuer. La PWA est facultative et non implémentée. Ajouter au README les preuves avant/après d'une correction, le résultat d'un essai mobile et le retour sur le jeu d'un camarade pour J2.
+Les tests couvrent palette, propositions invalides, exemples de score, répétitions, victoire au dixième essai, défaite et verrouillage après la fin. Le déploiement GitHub Pages, la conformité officielle API 0.2 et les tests sur smartphone réel restent à effectuer. La PWA est implémentée (manifest, icônes et service worker) ; son installation et le mode hors ligne restent à vérifier sur navigateur et smartphone réels. Ajouter au README les preuves avant/après d'une correction, le résultat d'un essai mobile et le retour sur le jeu d'un camarade pour J2.
 
 ## Scénarios de vérification manuelle (version 1.0.0)
 
