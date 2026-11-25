@@ -47,6 +47,21 @@
         </ul>
       </details>
     </section>
+    <section class="share-card" aria-label="Partager le jeu">
+      <details id="share-details">
+        <summary>📲 Partager Mastermind</summary>
+        <div class="share-content">
+          <p>Scannez ce QR code avec un téléphone pour ouvrir le jeu.</p>
+          <img id="share-qr" alt="QR code pour ouvrir Mastermind" width="220" height="220" loading="lazy">
+          <p class="share-url" id="share-url"></p>
+          <div class="share-actions">
+            <button class="button primary" id="share-native" type="button">Partager…</button>
+            <button class="button secondary" id="copy-link" type="button">Copier le lien</button>
+          </div>
+          <p class="share-note">Le QR code est généré en ligne ; une connexion Internet est nécessaire pour l'afficher.</p>
+        </div>
+      </details>
+    </section>
     <footer>Code secret · Projet pédagogique · v1.0.0</footer>
   </main>
   <script type="module" src="./app.js"></script>
