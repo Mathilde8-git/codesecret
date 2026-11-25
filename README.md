@@ -22,6 +22,8 @@ L'application expose `window.CodeSecretAPI` :
 CodeSecretAPI.startGame();
 CodeSecretAPI.submitGuess(["rouge", "bleu", "vert", "jaune"]);
 CodeSecretAPI.getState();
+// Mode test : secret déterministe, mêmes règles et même état que l’interface
+CodeSecretAPI.startTestGame(["rouge", "bleu", "vert", "jaune"]);
 ```
 L'état contient `status` (`playing`, `won`, `lost`), `attemptsUsed`, `attemptsRemaining` et `history`. Le secret n'est pas exposé.
 
