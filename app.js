@@ -23,5 +23,12 @@ const api=Object.freeze({version:"0.2-provisional",startGame:()=>{newGame();retu
 Object.defineProperty(window,"CodeSecretAPI",{value:api,writable:false,configurable:false});
 newGame();
 
+// Partage : QR code et actions utilisant l'adresse publique de l'application.
+const shareUrl=window.location.href.split("#")[0];
+$("share-url").textContent=shareUrl;
+$("share-qr").src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(shareUrl);
+$("share-native").addEventListener("click",async()=>{const data={title:"Mastermind — Code secret",text:"Joue à Mastermind !",url:shareUrl};if(navigator.share){try{await navigator.share(data);}catch(err){if(err.name!=="AbortError")message("Partage indisponible. Vous pouvez copier le lien.","error");}}else{try{await navigator.clipboard.writeText(shareUrl);message("Lien copié ! Vous pouvez le partager.");}catch{message("Copiez le lien affiché pour partager le jeu.","error");}}});
+$("copy-link").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(shareUrl);message("Lien copié ! Vous pouvez le partager.");}catch{message("Copie impossible dans ce navigateur. Sélectionnez le lien affiché.","error");}});
+
 // Enregistre le cache hors ligne pour rendre l’application installable.
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(err=>console.warn("Service worker non disponible",err)));}
