@@ -8,8 +8,14 @@ Ouvrir `index.html` dans un navigateur récent. Aucun compte, serveur applicatif
 ## Règles et source
 Le jeu applique l'annexe « Règles communes » du document *Projet — Code secret en couleurs, inspiré du Mastermind*, édition 2.2 (pages 4 à 6). Le secret est une suite fixe et aléatoire de quatre couleurs parmi `rouge`, `bleu`, `vert`, `jaune`, `orange`, `violet`, répétitions possibles. Dix propositions ordonnées de quatre couleurs sont autorisées. Une proposition invalide ne consomme pas d'essai. Les indices comptent d'abord les positions exactes, puis les couleurs présentes ailleurs parmi les occurrences restantes. Une occurrence ne compte qu'une fois. La victoire est possible au dixième essai ; après dix essais valides sans victoire, la partie est perdue.
 
+## Application installable (PWA)
+Le jeu peut être ajouté à l'écran d'accueil ou installé depuis un navigateur compatible. Après un premier chargement en ligne, les fichiers essentiels sont mis en cache pour permettre de jouer hors connexion. Sur iPhone/iPad : Safari > Partager > Ajouter à l'écran d'accueil. Sur Android/ordinateur : utiliser le bouton ou menu « Installer » du navigateur, s'il est proposé.
+
 ## Fichiers
-- `index.html` : structure de la page.
+- `index.html` : structure de la page et métadonnées PWA.
+- `manifest.webmanifest` : paramètres d'installation.
+- `sw.js` : cache hors ligne.
+- `icons/` : icônes de l'application.
 - `style.css` : présentation responsive.
 - `app.js` : interface et API publique.
 - `game.js` : moteur, validation et calcul des indices.
